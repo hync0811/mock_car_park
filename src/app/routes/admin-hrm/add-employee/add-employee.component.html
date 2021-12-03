@@ -1,0 +1,92 @@
+<div class="main-container">
+    <div class="heaeder-title">
+        <h1>Add Employee</h1>
+    </div>
+    <hr />
+    <div class="add-form">
+        <form [formGroup]="addNewEmployeeInfomationForm">
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Full name <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="fullName" name="fullName"
+                        placeholder="Enter full name" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Phone number <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="phoneNumber" name="phoneNumber"
+                        placeholder="Enter phone number" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Date of birth <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="date" formControlName="dateOfBirth" name="password" />
+                </mat-form-field>
+            </div>
+            <div class="row" style="margin-bottom: 16px;">
+                <label class="col-25" style="font-weight: 600;">Sex <strong class="note">(*)</strong></label>
+                <!-- <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="fullName" name="password"
+                        placeholder="Enter full name" />
+                </mat-form-field> -->
+                <mat-radio-group aria-label="Select an option" formControlName="sex">
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Address</label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="address" name="address" placeholder="Enter address" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Email</label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="email" formControlName="email" name="email" placeholder="Enter email" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Account <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="account" name="account" placeholder="Enter account" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Password <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="password" formControlName="password" name="password"
+                        placeholder="Enter password" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Department <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <!-- <input matInput type="text" formControlName="fullName" name="password"
+                        placeholder="Enter full name" /> -->
+                    <mat-select placeholder="Select department">
+                        <mat-option value="one">Employee</mat-option>
+                        <mat-option value="two">Developer</mat-option>
+                        <mat-option value="two">Tester</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="button-action">
+                <button mat-raised-button style="background-color: #189ad6;" color="primary">
+                    
+                    <mat-icon style="font-size: 20px;">fast_rewind</mat-icon>Back
+                </button>
+                <button mat-raised-button style="background-color: #d68a18; margin-left: 15px;"
+                (click)="clearForm()" color="primary">
+                    <mat-icon style="font-size: 20px;">replay</mat-icon> Reset
+                </button>
+                <button mat-raised-button style="background-color: #14b938; margin-left: 15px;"
+                (click)="addNewEMployee()" color="primary">
+                    <mat-icon style="font-size: 20px;">add</mat-icon> Add
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

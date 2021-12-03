@@ -8,6 +8,10 @@
                 </mat-form-field>
             </p>
 
+            <mat-error class="text-danger" *ngIf="f.email.errors && f.email.hasError('maxlength')">
+                <p>firstname reach max length</p>
+            </mat-error>
+
             <p>
                 <mat-form-field>
                     <input type="password" matInput placeholder="Password" formControlName="password">
@@ -24,7 +28,7 @@
                 </div>
     
                 <div class="button">
-                    <button mat-flat-button color="primary">Login</button>
+                    <button mat-flat-button color="primary" (click)="onSubmit()">Login</button>
                 </div>
             </div>
 

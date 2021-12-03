@@ -1,0 +1,55 @@
+<div class="main-container">
+    <div class="header-title">
+        <h1>Employee list</h1>
+    </div>
+    <hr />
+    <div class="search">
+        <mat-form-field style="width: 300px; margin-right: 15px;" appearance="outline">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput type="search" placeholder="User Search" class="search-input">
+        </mat-form-field>
+        <button mat-raised-button style="background-color: #189ad6;" color="primary">Search</button>
+    </div>
+    <div class="table-div">
+        <table mat-table [dataSource]="employees" class="mat-elevation-z8">
+            <ng-container matColumnDef="ID">
+                <th mat-header-cell *matHeaderCellDef>ID</th>
+                <td mat-cell *matCellDef="let element">{{element.employeeId}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let element">{{element.employeeName}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Date of birth">
+                <th mat-header-cell *matHeaderCellDef>Date of birth</th>
+                <td mat-cell *matCellDef="let element">{{element.employeeBirthdate | date}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Address">
+                <th mat-header-cell *matHeaderCellDef>Address</th>
+                <td mat-cell *matCellDef="let element">{{element.employeeAddress}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Phone number">
+                <th mat-header-cell *matHeaderCellDef>Phone number</th>
+                <td mat-cell *matCellDef="let element">{{element.employeePhone}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Department">
+                <th mat-header-cell *matHeaderCellDef>Department</th>
+                <td mat-cell *matCellDef="let element">{{element.department}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Action">
+                <th mat-header-cell *matHeaderCellDef>Action</th>
+                <td mat-cell *matCellDef="let element" style="cursor: pointer;">
+                    <p style="color: #189ad6;">
+                        <mat-icon style="font-size: 18px;">remove_red_eye</mat-icon>
+                        <span>View</span>
+                    </p>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="nameColumn"></tr>
+            <tr mat-row *matRowDef="let row; columns: nameColumn"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+    </div>
+</div>
