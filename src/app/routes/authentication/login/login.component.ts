@@ -15,22 +15,22 @@ export class LoginComponent implements OnInit {
   error!: string;
   submitted = false;
   returnUrl!: string;
-
+  hide = true;
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService
-    ) {
-      // if (this.authenticationService.currentUserValue) { 
-      //   if (this.authenticationService.currentUserValue.mainRole === "HRM") {
-      //     this.router.navigate(['/hrm/view-employee']);
-      //   } else {
-      //     this.router.navigate(['/auth/login']);
-      //   }
-      //   console.log(this.authenticationService.currentUserValue)
-      // }
-     }
+  ) {
+    // if (this.authenticationService.currentUserValue) { 
+    //   if (this.authenticationService.currentUserValue.mainRole === "HRM") {
+    //     this.router.navigate(['/hrm/view-employee']);
+    //   } else {
+    //     this.router.navigate(['/auth/login']);
+    //   }
+    //   console.log(this.authenticationService.currentUserValue)
+    // }
+  }
 
   createForm() {
     this.loginForm = this.fb.group({
@@ -57,28 +57,28 @@ export class LoginComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
-        return;
+      return;
     }
 
     // this.loading = true;
     this.authenticationService.login(this.f.email.value, this.f.password.value)
-        .pipe(first())
-        .subscribe(
-            (data: any) => {
-              if (this.returnUrl) {
-                this.router.navigate([this.returnUrl]);
-              } 
-              // else {
-              //   if (this.f.email.value === "tuyen1") {
-              //     this.router.navigate(['/hrm/view-employee']);
-              //   } else {
-              //     this.router.navigate(['/auth/login']);
-              //   }
-              // }
-            },
-            (error: any) => {
-              this.error = error;
-            });
-    }
+      .pipe(first())
+      .subscribe(
+        (data: any) => {
+          if (this.returnUrl) {
+            this.router.navigate([this.returnUrl]);
+          }
+          // else {
+          //   if (this.f.email.value === "tuyen1") {
+          //     this.router.navigate(['/hrm/view-employee']);
+          //   } else {
+          //     this.router.navigate(['/auth/login']);
+          //   }
+          // }
+        },
+        (error: any) => {
+          this.error = error;
+        });
+  }
 
 }

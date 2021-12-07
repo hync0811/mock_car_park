@@ -1,4 +1,4 @@
-export interface Role {
-    role_id: string;
-    role_name: string;
+export enum Role {
+    role_carpark= 'CPM',
+    role_hrm= 'HRM'
 }

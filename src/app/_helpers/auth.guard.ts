@@ -15,9 +15,9 @@ export class AuthGuard implements CanActivate {
         const currentUser = this.authenticationService.loggedIn;
 
         if (currentUser) {
-            const helper = new JwtHelperService();
-            const decodedToken = helper.decodeToken(currentUser);
-            const userRole = decodedToken.sub;
+            // const helper = new JwtHelperService();
+            // const decodedToken = helper.decodeToken(currentUser);
+            // const userRole = decodedToken.sub;
             // debugger
             // if (userRole !== 'tuyen1') {
             //     this.router.navigate(['/car']);
@@ -31,19 +31,4 @@ export class AuthGuard implements CanActivate {
         return false;
     }
 
-    canActiveChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        const currentUser = this.authenticationService.loggedIn;
-        const helper = new JwtHelperService();
-        const decodedToken = helper.decodeToken(currentUser);
-        const userRole = decodedToken.sub;
-
-            // debugger
-            if (userRole === 'tuyen1') {
-                this.router.navigate(['/hrm']);
-                return true;
-            }
-
-        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-        return false;
-    }
 }

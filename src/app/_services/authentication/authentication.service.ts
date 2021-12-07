@@ -13,7 +13,13 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient, private router: Router,) { }
+  // private currentUserSubject!: BehaviorSubject<User | null>;
+  // public currentUser!: Observable<User | null>;
+
+  constructor(private http: HttpClient, private router: Router) {
+    // this.currentUserSubject = new BehaviorSubject<User | null>(JSON.parse(JSON.stringify(localStorage.getItem('currentUser') || "null")));
+    // this.currentUser = this.currentUserSubject.asObservable();
+  }
 
   public get loggedIn(): any {
     return localStorage.getItem('currentUser');
@@ -25,20 +31,32 @@ export class AuthenticationService {
     const body = JSON.stringify(obj);
     return this.http.post<any>(`${environment.apiUrl}/api/login`, body, { 'headers': headers })
       .pipe(tap(res => {
-        const helper = new JwtHelperService();
-        const decodedToken = helper.decodeToken(res.token);
-        const userRole = decodedToken.sub;
-        if ( userRole === 'tuyen1') {
+        const roles = res.roles_name
+        if (roles.length > 1) {
+          this.router.navigate(['/roles']);
+        }
+        else if (roles[0] === 'HRM') {
           this.router.navigate(['/hrm/view-employee']);
+        } else if (roles[0] === 'CPM') {
+          this.router.navigate(['/car/list']);
         }
-        else {
-          this.router.navigate(['/auth/login']);
-        }
+
+        // const helper = new JwtHelperService();
+        // const decodedToken = helper.decodeToken(res.token);
+        // const userRole = decodedToken.sub;
+        // if ( userRole === 'tuyen1') {
+        //   this.router.navigate(['/hrm/view-employee']);
+        // }
+        // else {
+        //   this.router.navigate(['/auth/login']);
+        // }
         localStorage.setItem('currentUser', res.token);
+        // this.currentUserSubject.next(res);
       }));
   }
 
   logout() {
     localStorage.removeItem('currentUser');
+    // this.currentUserSubject.next(null)
   }
 }

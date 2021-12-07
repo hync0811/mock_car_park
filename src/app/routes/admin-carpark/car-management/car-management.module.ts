@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CarListComponent } from './car-list/car-list.component';
 import { AddCarComponent } from './add-car/add-car.component';
 import { Routes, RouterModule } from '@angular/router';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 
 const routes: Routes = [
   { path: 'list', component: CarListComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    MaterialModule,
     RouterModule.forChild(routes)
   ]
 })

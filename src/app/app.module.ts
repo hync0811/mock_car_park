@@ -13,11 +13,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { AuthGuard } from './_helpers/auth.guard';
 import { HrmLayoutComponent } from './layout/hrm-layout/hrm-layout.component';
+import { SelectRoleComponent } from './routes/select-role/select-role.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HrmLayoutComponent
+    HrmLayoutComponent,
+    SelectRoleComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +34,7 @@ import { HrmLayoutComponent } from './layout/hrm-layout/hrm-layout.component';
     HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: AuthGuard}
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

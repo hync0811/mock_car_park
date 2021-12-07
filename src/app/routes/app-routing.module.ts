@@ -1,3 +1,4 @@
+import { SelectRoleComponent } from './select-role/select-role.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../_helpers/auth.guard';
@@ -20,7 +21,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () =>
     import('./admin-carpark/admin-carpark.module').then((m) => m.AdminCarparkModule),
-  }
+  },
+  {
+    path: 'roles',
+    canActivate: [AuthGuard],
+    component: SelectRoleComponent,
+  }  
 ];
 
 @NgModule({

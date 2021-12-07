@@ -28,7 +28,8 @@ const modules = [
   MatMenuModule,
   MatSidenavModule,
   MatListModule,
-  MatRadioModule
+  MatRadioModule,
+  
 ]
 
 @NgModule({
