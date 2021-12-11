@@ -13,13 +13,17 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
 
-  // private currentUserSubject!: BehaviorSubject<User | null>;
-  // public currentUser!: Observable<User | null>;
+  // private currentUserSubject: BehaviorSubject<User | null>;
+  // public currentUser: Observable<User | null>;
 
   constructor(private http: HttpClient, private router: Router) {
-    // this.currentUserSubject = new BehaviorSubject<User | null>(JSON.parse(JSON.stringify(localStorage.getItem('currentUser') || "null")));
+    // this.currentUserSubject =  new BehaviorSubject<User | null>(JSON.parse(localStorage.getItem('currentUser') || 'null'));
     // this.currentUser = this.currentUserSubject.asObservable();
   }
+
+  // public get currentUserValue(): User | null {
+  //   return this.currentUserSubject.value;
+  // }
 
   public get loggedIn(): any {
     return localStorage.getItem('currentUser');
@@ -50,8 +54,9 @@ export class AuthenticationService {
         // else {
         //   this.router.navigate(['/auth/login']);
         // }
-        localStorage.setItem('currentUser', res.token);
+        localStorage.setItem('currentUser', res);
         // this.currentUserSubject.next(res);
+        return res;
       }));
   }
 

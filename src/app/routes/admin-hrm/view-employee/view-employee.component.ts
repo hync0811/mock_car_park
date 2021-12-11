@@ -24,7 +24,7 @@ export class ViewEmployeeComponent implements OnInit {
   constructor(private hrmService: HrmService) { }
 
   getAllEmployee(){
-    this.hrmService.getAllEmployee(0,3).subscribe((res: any) => {
+    this.hrmService.getAllEmployee(0,6).subscribe((res: any) => {
       this.employees = res.data;
       console.log(this.employees);
       

@@ -18,4 +18,29 @@ export class HrmService {
     return this.http.get<any[]>(`${environment.apiUrl}/api/employee/getAll`, { params });
   }
 
+  addNewEmployee(
+    account: string,
+    department: string,
+    employeeAddress: string,
+    employeeEmail: string,
+    employeeName: string,
+    employeePhone: string,
+    password: string,
+    sex: string
+  ): Observable<any[]> {
+    const headers = { 'content-type': 'application/json' }
+    const obj = {
+      account: account,
+      department: department,
+      employeeAddress: employeeAddress,
+      employeeEmail: employeeEmail,
+      employeeName: employeeName,
+      employeePhone: employeePhone,
+      password: password,
+      sex: sex
+    };
+    const body = JSON.stringify(obj);
+    return this.http.post<any>(`${environment.apiUrl}/api/employee/add`, body, { 'headers': headers })
+  }
+
 }

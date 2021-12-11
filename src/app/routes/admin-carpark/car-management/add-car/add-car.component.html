@@ -1,1 +1,59 @@
-<p>add-car works!</p>
+<div class="main-container">
+    <div class="header-title">
+        <h1>Add Car</h1>
+    </div>
+    <hr/>
+    <div class="add-form">
+        <form [formGroup]="addCarInformation" (ngSubmit)="addNewCar()">
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">License plate <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="licensePlate" name="licensePlate"
+                        placeholder="Enter license plate" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Car type</label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="carType" name="carType"
+                        placeholder="Enter car type" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Car color</label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="carColor" name="carColor"
+                        placeholder="Enter car color" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Company <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                                    <mat-select placeholder="Select company">
+                        <mat-option value="one">Phương Trang</mat-option>
+                        <mat-option value="two">Cam Van</mat-option>
+                        <mat-option value="two">Hoang Long</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Parking lot <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                                    <mat-select placeholder="Select parking lot">
+                        <mat-option value="one">Bai so 1</mat-option>
+                        <mat-option value="two">Bai so 2</mat-option>
+                        <mat-option value="two">Bai so 3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="button-action">
+                <button mat-raised-button style="background-color: #d68a18; margin-left: 15px;" color="primary">
+                    <mat-icon style="font-size: 20px;">replay</mat-icon> Reset
+                </button>
+                <button mat-raised-button style="background-color: #14b938; margin-left: 15px;" color="primary">
+                    <mat-icon style="font-size: 20px;">add</mat-icon> Add
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

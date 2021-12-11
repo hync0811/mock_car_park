@@ -12,14 +12,14 @@ import { AdminCarparkModule } from './routes/admin-carpark/admin-carpark.module'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { AuthGuard } from './_helpers/auth.guard';
-import { HrmLayoutComponent } from './layout/hrm-layout/hrm-layout.component';
 import { SelectRoleComponent } from './routes/select-role/select-role.component';
+import { HrmHeaderComponent } from './layout/hrm_layout/hrm-header/hrm-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HrmLayoutComponent,
-    SelectRoleComponent
+    SelectRoleComponent,
+    HrmHeaderComponent
   ],
   imports: [
     BrowserModule,

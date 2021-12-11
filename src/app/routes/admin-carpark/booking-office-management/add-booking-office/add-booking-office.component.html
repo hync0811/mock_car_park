@@ -1,1 +1,63 @@
-<p>add-booking-office works!</p>
+<div class="main-container">
+    <div class="header-title">
+        <h1>Add Booking office</h1>
+    </div>
+    <hr />
+    <div class="add-form">
+        <form [formGroup]="addBookingOfficeInformation" (ngSubmit)="addNewBookingOffice()">
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Booking office name <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="bookingOfficeName" name="bookingOfficeName"
+                        placeholder="Enter booking office name" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Trip <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <!-- <input matInput type="text" formControlName="fullName" name="password"
+                        placeholder="Enter full name" /> -->
+                    <mat-select placeholder="Select trip">
+                        <mat-option value="one">Gia Lai</mat-option>
+                        <mat-option value="two">Khanh Hoa</mat-option>
+                        <mat-option value="two">Nam Dinh</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Phone number <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="phoneNumber" name="phoneNumber"
+                        placeholder="Enter phone number" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Price <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="number" formControlName="price" name="price"
+                        placeholder="Enter price" />
+                </mat-form-field>
+                <strong style="padding-left: 10px;">(VNĐ)</strong>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Contract deadline <strong class="note">(*)</strong></label>
+                <!-- <mat-form-field appearance="outline" style="width: 250px;">
+                    <mat-date-range-input [rangePicker]="picker">
+                      <input matStartDate placeholder="Start date">
+                      <input matEndDate placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                  </mat-form-field> -->
+            </div>
+            <div class="button-action">
+                <button mat-raised-button style="background-color: #d68a18; margin-left: 15px;" color="primary">
+                    <mat-icon style="font-size: 20px;">replay</mat-icon> Reset
+                </button>
+                <button mat-raised-button style="background-color: #14b938; margin-left: 15px;" color="primary">
+                    <mat-icon style="font-size: 20px;">add</mat-icon> Add
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

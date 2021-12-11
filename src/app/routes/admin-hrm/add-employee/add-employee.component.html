@@ -32,8 +32,8 @@
                         placeholder="Enter full name" />
                 </mat-form-field> -->
                 <mat-radio-group aria-label="Select an option" formControlName="sex">
-                    <mat-radio-button value="Male">Male</mat-radio-button>
-                    <mat-radio-button value="Female">Female</mat-radio-button>
+                    <mat-radio-button value="1">Male</mat-radio-button>
+                    <mat-radio-button value="0">Female</mat-radio-button>
                 </mat-radio-group>
             </div>
             <div class="row">
@@ -63,13 +63,13 @@
             </div>
             <div class="row">
                 <label class="col-25" style="font-weight: 600;">Department <strong class="note">(*)</strong></label>
-                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;" >
                     <!-- <input matInput type="text" formControlName="fullName" name="password"
                         placeholder="Enter full name" /> -->
-                    <mat-select placeholder="Select department">
-                        <mat-option value="one">Employee</mat-option>
-                        <mat-option value="two">Developer</mat-option>
-                        <mat-option value="two">Tester</mat-option>
+                    <mat-select formControlName="department" placeholder="Select department">
+                        <mat-option value="Employee">Employee</mat-option>
+                        <mat-option value="Developer">Developer</mat-option>
+                        <mat-option value="Tester">Tester</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-car',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCarComponent implements OnInit {
 
-  constructor() { }
+  addCarInformation!: FormGroup;
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.addCarInformation = this.formBuilder.group({
+      licensePlate: [],
+      carType: [],
+      carColor: [],
+      company: [],
+      parkingLot: [],
+    })
+  }
+
+  addNewCar(){
+    console.log(this.addCarInformation.value);
+    
   }
 
 }

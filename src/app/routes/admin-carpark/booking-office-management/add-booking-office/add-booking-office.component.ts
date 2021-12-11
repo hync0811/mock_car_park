@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-booking-office',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddBookingOfficeComponent implements OnInit {
 
-  constructor() { }
+  addBookingOfficeInformation!: FormGroup;
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.addBookingOfficeInformation = this.formBuilder.group({
+      bookingOfficeName: [],
+      trip: [],
+      phoneNumber: [],
+      place: [],
+      price: [],
+      contractDeadline: [],
+    })
+  }
+
+  addNewBookingOffice() {
+    console.log(this.addBookingOfficeInformation.value);
   }
 
 }

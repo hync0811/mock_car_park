@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HrmLayoutComponent } from './hrm-layout.component';
+import { HrmHeaderComponent } from './hrm-header.component';
 
-describe('HrmLayoutComponent', () => {
-  let component: HrmLayoutComponent;
-  let fixture: ComponentFixture<HrmLayoutComponent>;
+describe('HrmHeaderComponent', () => {
+  let component: HrmHeaderComponent;
+  let fixture: ComponentFixture<HrmHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HrmLayoutComponent ]
+      declarations: [ HrmHeaderComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HrmLayoutComponent);
+    fixture = TestBed.createComponent(HrmHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingOfficeListComponent implements OnInit {
 
+  offices: any[]=[];
+  nameColumn: string [] =[
+    'ID',
+    'Booking office',
+    'Trip',
+    'Action',
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
+

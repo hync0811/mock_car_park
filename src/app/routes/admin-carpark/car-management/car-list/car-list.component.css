@@ -1,16 +1,32 @@
-.example-container .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
-  
-  .example-right-align {
-    text-align: right;
-  }
-  
-  input.example-right-align::-webkit-outer-spin-button,
-  input.example-right-align::-webkit-inner-spin-button {
-    display: none;
-  }
-  
-  input.example-right-align {
-    -moz-appearance: textfield;
-  }
+.main-container {
+  margin: 16px 16px 16px 16px;
+}
+
+.table{
+  margin: 20px auto;
+  min-width: 70vw;
+  width: 90%;
+  font-size: 28px !important;
+}
+
+.search {
+  justify-content: space-between;
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+table {
+  margin: 20px auto;
+  min-width: 70vw;
+  width: 100%;
+  font-size: 28px !important;
+}
+
+.mat-header-cell {
+  font-size: 18px;
+  font-weight: 700;
+}
+.mat-cell {
+  font-size: 18px;
+}
