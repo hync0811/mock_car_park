@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../../_services/authentication/authentication.service';
 import { HrmService } from './../../../_services/hrm/hrm.service';
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
@@ -21,7 +22,7 @@ export class ViewEmployeeComponent implements OnInit {
   ];
   employees: any = [];
   
-  constructor(private hrmService: HrmService) { }
+  constructor(private hrmService: HrmService, private authenticationService: AuthenticationService) { }
 
   getAllEmployee(){
     this.hrmService.getAllEmployee(0,6).subscribe((res: any) => {
@@ -29,6 +30,10 @@ export class ViewEmployeeComponent implements OnInit {
       console.log(this.employees);
       
     })
+  }
+
+  logout(){
+    this.authenticationService.logout();
   }
   
   ngOnInit(): void {

@@ -54,9 +54,10 @@ export class AuthenticationService {
         // else {
         //   this.router.navigate(['/auth/login']);
         // }
-        localStorage.setItem('currentUser', res);
+        let user = JSON.stringify(res);
+        localStorage.setItem('currentUser', user);
         // this.currentUserSubject.next(res);
-        return res;
+        return user;
       }));
   }
 

@@ -7,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParkingLotListComponent implements OnInit {
 
+  parks: any[]=[];
+  nameColumn: string[] = [
+    'ID',
+    'Parking lot',
+    'Place',
+    'Area',
+    'Price',
+    'Status',
+    'Action',
+  ]
   constructor() { }
 
   ngOnInit(): void {
