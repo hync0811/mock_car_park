@@ -1,0 +1,23 @@
+.container-fluid{
+    background-color: #f9fafc;
+    color: #3f51b5;
+    font-size: larger;
+    display: flex;
+    place-items: center;
+}
+
+.welcome{
+    padding-right: 20px !important;
+}
+
+.logout{
+    cursor: pointer;
+    display: flex;
+    place-items: center;
+    padding-right: 10px !important;
+}
+
+.asdf {
+    margin-left:auto; 
+    margin-right:0;
+  }

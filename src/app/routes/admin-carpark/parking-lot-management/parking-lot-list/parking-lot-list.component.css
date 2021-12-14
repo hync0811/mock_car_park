@@ -1,0 +1,35 @@
+.main-container {
+    margin: 16px 16px 16px 16px;
+}
+
+.table{
+    margin: 20px auto;
+    min-width: 70vw;
+    width: 90%;
+    font-size: 28px !important;
+}
+
+.search {
+    justify-content: space-between;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+table {
+    margin: 20px auto;
+    min-width: 70vw;
+    width: 100%;
+    font-size: 28px !important;
+}
+
+.mat-header-cell {
+    font-size: 18px;
+    font-weight: 700;
+}
+.mat-cell {
+    font-size: 18px;
+}
+.action {
+    display: flex;
+  }

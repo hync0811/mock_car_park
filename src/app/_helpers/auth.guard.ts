@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     ) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        const currentUser = this.authenticationService.loggedIn;
+        const currentUser = JSON.parse(this.authenticationService.loggedIn);
 
         if (currentUser) {
             // const helper = new JwtHelperService();

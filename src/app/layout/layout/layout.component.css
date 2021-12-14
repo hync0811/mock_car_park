@@ -1,0 +1,8 @@
+#content {
+    height: 100%;
+    width: 85%;
+    margin-left: 250px;
+    min-width: 0;
+    z-index: 0;
+    overflow: auto;
+}

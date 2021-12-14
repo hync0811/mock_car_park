@@ -22,16 +22,12 @@
             <div class="row">
                 <label class="col-25" style="font-weight: 600;">Date of birth <strong class="note">(*)</strong></label>
                 <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
-                    <input matInput type="date" formControlName="dateOfBirth" name="password" />
+                    <input matInput type="date" formControlName="dateOfBirth" name="dateOfBirth"/>
                 </mat-form-field>
             </div>
             <div class="row" style="margin-bottom: 16px;">
                 <label class="col-25" style="font-weight: 600;">Sex <strong class="note">(*)</strong></label>
-                <!-- <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
-                    <input matInput type="text" formControlName="fullName" name="password"
-                        placeholder="Enter full name" />
-                </mat-form-field> -->
-                <mat-radio-group aria-label="Select an option" formControlName="sex">
+                <mat-radio-group aria-label="Select an option" formControlName="sex" class="col-75" appearance="outline" style="width: 250px;">
                     <mat-radio-button value="1">Male</mat-radio-button>
                     <mat-radio-button value="0">Female</mat-radio-button>
                 </mat-radio-group>
@@ -64,8 +60,6 @@
             <div class="row">
                 <label class="col-25" style="font-weight: 600;">Department <strong class="note">(*)</strong></label>
                 <mat-form-field class="col-75" appearance="outline" style="width: 250px;" >
-                    <!-- <input matInput type="text" formControlName="fullName" name="password"
-                        placeholder="Enter full name" /> -->
                     <mat-select formControlName="department" placeholder="Select department">
                         <mat-option value="Employee">Employee</mat-option>
                         <mat-option value="Developer">Developer</mat-option>

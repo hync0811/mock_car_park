@@ -1,1 +1,58 @@
-<p>add-trip works!</p>
+<div class="main-container">
+    <div class="header-title">
+        <h1>Add Trip</h1>
+    </div>
+    <hr />
+    <div class="add-form">
+        <form [formGroup]="addTripInformation">
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Destination <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="destination" name="destination"
+                        placeholder="Enter destination" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Departure time <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="time" id="appt" name="appt" formControlName="departureTime">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Driver <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="driver" name="driver" placeholder="Enter driver" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Car type <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="carType" name="carType" placeholder="Enter car type" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Maximum online ticket number <strong
+                        class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="number" formControlName="maximumOnlineTicketNumber"
+                        name="maximumOnlineTicketNumber" placeholder="Enter maximum online ticket number" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Departure date <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="date" formControlName="departureDate" name="departureDate" />
+                </mat-form-field>
+            </div>
+            <div class="button-action">
+                <button mat-raised-button style="background-color: #d68a18; margin-left: 15px;" color="primary">
+                    <mat-icon style="font-size: 20px;">replay</mat-icon> Reset
+                </button>
+                <button mat-raised-button style="background-color: #14b938; margin-left: 15px;"
+                (click)="addNewTrip()" color="primary">
+                    <mat-icon style="font-size: 20px;">add</mat-icon> Add
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

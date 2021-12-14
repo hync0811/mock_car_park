@@ -1,1 +1,55 @@
-<p>add-parking-lot works!</p>
+<div class="main-container">
+    <div class="header-title">
+        <h1>Add Parking lot</h1>
+    </div>
+    <hr />
+    <div class="add-form">
+        <form [formGroup]="addParkingLotInformation">
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Parking name <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="parkingName" name="parkingName"
+                        placeholder="Enter parking lot" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Place <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <mat-select formControlName="place" placeholder="Select place">
+                        <mat-option value="Khu Đông">Khu Đông</mat-option>
+                        <mat-option value="Khu Tây">Khu Tây</mat-option>
+                        <mat-option value="Khu Nam">Khu Nam</mat-option>
+                        <mat-option value="Khu Bắc">Khu Bắc</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Area <strong class="note">(*)</strong></label>
+                <div class="col-75">
+                    <mat-form-field appearance="outline" style="width: 225px;">
+                        <input matInput type="text" formControlName="area" name="area" placeholder="Enter area" />
+                    </mat-form-field>
+                    <strong style="padding-left: 10px;">(m2)</strong>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Price <strong class="note">(*)</strong></label>
+                <div class="col-75">
+                    <mat-form-field appearance="outline" style="width: 225px;">
+                        <input matInput type="text" formControlName="price" name="price" placeholder="Enter price" />
+                    </mat-form-field>
+                    <strong style="padding-left: 10px;">(m2)</strong>
+                </div>
+            </div>
+            <div class="button-action">
+                <button mat-raised-button style="background-color: #d68a18; margin-left: 15px;" color="primary">
+                    <mat-icon style="font-size: 20px;">replay</mat-icon> Reset
+                </button>
+                <button mat-raised-button style="background-color: #14b938; margin-left: 15px;" (click)="addParking()"
+                    color="primary">
+                    <mat-icon style="font-size: 20px;">add</mat-icon> Add
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

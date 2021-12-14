@@ -18,7 +18,9 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MaterialModule,
+    FormsModule, ReactiveFormsModule
   ]
 })
 export class TripManagementModule { }

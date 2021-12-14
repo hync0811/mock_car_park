@@ -13,8 +13,6 @@ export class JwtInterceptor implements HttpInterceptor {
         let currentUser = JSON.parse(this.authenticationService.loggedIn);
         // let currentUser = this.authenticationService.loggedIn;
         // debugger
-        console.log(currentUser);
-        
         if (currentUser) {
             request = request.clone({ headers: request.headers.append('Authorization', 'Bearer ' + currentUser.token + '') });
             // request = request.clone({

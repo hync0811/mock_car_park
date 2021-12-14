@@ -1,0 +1,11 @@
+<div class="container-fluid d-flex justify-content-end">
+    <div class="welcome p-1">
+        Welcome {{user.username}}
+    </div>
+    <div class="logout p-1" (click)="logout()">
+        <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+        <div>Log out</div>
+    </div>
+</div>

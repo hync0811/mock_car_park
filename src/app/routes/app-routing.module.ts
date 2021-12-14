@@ -2,6 +2,7 @@ import { SelectRoleComponent } from './select-role/select-role.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../_helpers/auth.guard';
+import { LayoutComponent } from '../layout/layout/layout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
@@ -11,22 +12,41 @@ const routes: Routes = [
       import('./authentication/authentication.module').then((m) => m.AuthenticationModule),
   },
   {
-    path: 'hrm',
+    path: '',
+    component: LayoutComponent,
     canActivate: [AuthGuard],
-    loadChildren: () =>
-    import('./admin-hrm/admin-hrm.module').then((m) => m.AdminHRMModule),
+    children: [
+      {
+        path: 'hrm',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./admin-hrm/admin-hrm.module').then((m) => m.AdminHRMModule),
+      },
+      {
+        path: 'cpa',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./admin-carpark/admin-carpark.module').then((m) => m.AdminCarparkModule),
+      },
+    ]
   },
-  {
-    path: 'cpa',
-    canActivate: [AuthGuard],
-    loadChildren: () =>
-    import('./admin-carpark/admin-carpark.module').then((m) => m.AdminCarparkModule),
-  },
+  // {
+  //   path: 'hrm',
+  //   canActivate: [AuthGuard],
+  //   loadChildren: () =>
+  //     import('./admin-hrm/admin-hrm.module').then((m) => m.AdminHRMModule),
+  // },
+  // {
+  //   path: 'cpa',
+  //   canActivate: [AuthGuard],
+  //   loadChildren: () =>
+  //     import('./admin-carpark/admin-carpark.module').then((m) => m.AdminCarparkModule),
+  // },
   {
     path: 'roles',
     canActivate: [AuthGuard],
     component: SelectRoleComponent,
-  }  
+  }
 ];
 
 @NgModule({

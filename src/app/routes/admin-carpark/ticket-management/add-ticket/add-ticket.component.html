@@ -1,1 +1,48 @@
-<p>add-ticket works!</p>
+<div class="main-container">
+    <div class="header-title">
+        <h1>Add Ticket</h1>
+    </div>
+    <hr />
+    <div class="add-form">
+        <form [formGroup]="addTicketInformation">
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Customer <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <input matInput type="text" formControlName="customer" name="customer"
+                        placeholder="Enter customer name" />
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Booking time <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                        <input matInput type="time" id="bookingTime" name="bookingTime" formControlName="bookingTime">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">Trip <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <mat-select formControlName="trip" placeholder="Select trip">
+                        <div *ngFor="let trip of trips"><mat-option value="{{trip.tripId}}">{{trip.destination}}</mat-option></div>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <label class="col-25" style="font-weight: 600;">License plate <strong class="note">(*)</strong></label>
+                <mat-form-field class="col-75" appearance="outline" style="width: 250px;">
+                    <mat-select formControlName="licnsePlate" placeholder="Select license plate">
+                        <div *ngFor="let car of cars"><mat-option value="{{car.licensePlate}}">{{car.licensePlate}}</mat-option></div>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="button-action">
+                <button mat-raised-button style="background-color: #d68a18; margin-left: 15px;" color="primary">
+                    <mat-icon style="font-size: 20px;">replay</mat-icon> Reset
+                </button>
+                <button mat-raised-button style="background-color: #14b938; margin-left: 15px;"
+                (click)="addNewTicket()" color="primary">
+                    <mat-icon style="font-size: 20px;">add</mat-icon> Add
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

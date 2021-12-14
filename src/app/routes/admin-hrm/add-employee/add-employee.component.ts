@@ -2,6 +2,7 @@ import { HrmService } from './../../../_services/hrm/hrm.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-employee',
@@ -17,7 +18,8 @@ export class AddEmployeeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private hrmService: HrmService,
-    private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.addNewEmployeeInfomationForm = this.fb.group({
@@ -72,6 +74,8 @@ export class AddEmployeeComponent implements OnInit {
     // console.log(this.f.phoneNumber.value, "phone")
     // console.log(this.f.password.value, "pass")
     // console.log(this.f.sex.value, " ssex")
+    // console.log(this.f.dateOfBirth.value);
+      
 
     if (this.addNewEmployeeInfomationForm.invalid) {
       return;
@@ -80,6 +84,7 @@ export class AddEmployeeComponent implements OnInit {
         this.f.account.value,
         this.f.department.value,
         this.f.address.value,
+        this.f.dateOfBirth.value,
         this.f.email.value,
         this.f.fullName.value,
         this.f.phoneNumber.value,
@@ -91,6 +96,7 @@ export class AddEmployeeComponent implements OnInit {
           horizontalPosition: 'center',
           verticalPosition: 'top'
         })
+        this.router.navigate(['/hrm/view-employee']);
       },
         (error: any) => {
           this.error = error;

@@ -2,11 +2,11 @@
     margin: 16px 16px 16px 16px;
 }
 
-.example-full-width{
+.example-full-width {
     width: 300px;
 }
 
-.row{
+.row {
     display: flex;
     clear: both;
     align-items: baseline;
@@ -15,14 +15,25 @@
 .col-25 {
     float: left;
     width: 10%;
+    padding-right: 0 !important;
 }
-  
+
 .col-75 {
     float: left;
     width: auto;
 }
 
-.note{
+.col-30 {
+    float: left;
+    width: 10%;
+}
+
+.col-70 {
+    float: left;
+    width: auto;
+}
+
+.note {
     color: #ff0000;
 }
 
@@ -30,7 +41,7 @@
     margin-left: 16px;
 }
 
-.button-action{
+.button-action {
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 178px;
 }

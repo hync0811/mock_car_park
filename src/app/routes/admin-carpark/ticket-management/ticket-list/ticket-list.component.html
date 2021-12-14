@@ -1,1 +1,44 @@
-<p>ticket-list works!</p>
+<div class="main-container">
+    <div class="header-title">
+        <h1>Ticket list</h1>
+    </div>
+    <hr />
+    <div class="table-div">
+        <table mat-table [dataSource]="tickets" class="mat-elevation-z8">
+            <ng-container matColumnDef="No">
+                <th mat-header-cell *matHeaderCellDef>No</th>
+                <td mat-cell *matCellDef="let element">{{element.ticketId}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Trip">
+                <th mat-header-cell *matHeaderCellDef>Destination</th>
+                <td mat-cell *matCellDef="let element">{{element.destination}}</td>
+            </ng-container>
+            <ng-container matColumnDef="License plate">
+                <th mat-header-cell *matHeaderCellDef>License plate</th>
+                <td mat-cell *matCellDef="let element">{{element.licensePlate}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Customer">
+                <th mat-header-cell *matHeaderCellDef>Customer</th>
+                <td mat-cell *matCellDef="let element">{{element.customerName}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Booking time">
+                <th mat-header-cell *matHeaderCellDef>Booking time</th>
+                <td mat-cell *matCellDef="let element">{{element.bookingTime}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Action">
+                <th mat-header-cell *matHeaderCellDef style="width: 200px;">Action</th>
+                <td mat-cell *matCellDef="let element" style="color: #189ad6;">
+                    <p style="cursor: pointer" (click)="deleteTicket(element.ticketId)">
+                        <mat-icon style="font-size: 20px;">delete</mat-icon>
+                        <span>Delete</span>
+                    </p>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="nameColumn"></tr>
+            <tr mat-row *matRowDef="let row; columns: nameColumn"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+    </div>
+</div>

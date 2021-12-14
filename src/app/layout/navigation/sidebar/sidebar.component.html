@@ -1,0 +1,15 @@
+<div class="sidebar">
+    <div class="sidebar-content">
+        <div *ngIf="role === 'hrm'" class="p-d-flex p-jc-center system-name" style="margin-top: 35px; padding-left: 35px;">HRM</div>
+        <div *ngIf="role === 'cpa'" class="p-d-flex p-jc-center system-name" style="margin-top: 35px; padding-left: 35px;">Car Park</div>
+        <div *ngFor="let link of sideBarLinks">
+            <a *ngIf="link.url"
+               [routerLink]="link.url"
+               routerLinkActive="active"
+               class="link allowed">
+               <!-- <i class="pi {{link.icon}}"></i> -->
+                <div style="margin-left: 15px; ">{{link.name}}</div>
+            </a>
+        </div>
+    </div>
+</div>

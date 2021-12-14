@@ -11,15 +11,20 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AdminCarparkModule } from './routes/admin-carpark/admin-carpark.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
-import { AuthGuard } from './_helpers/auth.guard';
 import { SelectRoleComponent } from './routes/select-role/select-role.component';
-import { HrmHeaderComponent } from './layout/hrm_layout/hrm-header/hrm-header.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { LayoutComponent } from './layout/layout/layout.component';
+import { NavigationComponent } from './layout/navigation/navigation.component';
+import { SidebarComponent } from './layout/navigation/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectRoleComponent,
-    HrmHeaderComponent
+    HeaderComponent,
+    LayoutComponent,
+    NavigationComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

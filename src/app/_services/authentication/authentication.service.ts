@@ -42,7 +42,7 @@ export class AuthenticationService {
         else if (roles[0] === 'HRM') {
           this.router.navigate(['/hrm/view-employee']);
         } else if (roles[0] === 'CPM') {
-          this.router.navigate(['/car/list']);
+          this.router.navigate(['/cpa/booking-office/list']);
         }
 
         // const helper = new JwtHelperService();
@@ -63,6 +63,7 @@ export class AuthenticationService {
 
   logout() {
     localStorage.removeItem('currentUser');
+    this.router.navigate(['/auth/login'])
     // this.currentUserSubject.next(null)
   }
 }

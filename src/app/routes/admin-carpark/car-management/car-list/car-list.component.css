@@ -2,7 +2,7 @@
   margin: 16px 16px 16px 16px;
 }
 
-.table{
+.table {
   margin: 20px auto;
   min-width: 70vw;
   width: 90%;
@@ -29,4 +29,7 @@ table {
 }
 .mat-cell {
   font-size: 18px;
+}
+.action {
+  display: flex;
 }

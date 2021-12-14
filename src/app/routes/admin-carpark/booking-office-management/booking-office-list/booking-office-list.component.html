@@ -14,15 +14,15 @@
         <table mat-table [dataSource]="offices" class="mat-elevation-z8">
             <ng-container matColumnDef="ID">
                 <th mat-header-cell *matHeaderCellDef>ID</th>
-                <td mat-cell *matCellDef="let element">{{element.id}}</td>
+                <td mat-cell *matCellDef="let element">{{element.officeId}}</td>
             </ng-container>
             <ng-container matColumnDef="Booking office">
-                <th mat-header-cell *matHeaderCellDef>Booking office</th>
-                <td mat-cell *matCellDef="let element">{{element.bookingOffice}}</td>
+                <th mat-header-cell *matHeaderCellDef>Booking Name</th>
+                <td mat-cell *matCellDef="let element">{{element.officeName}}</td>
             </ng-container>
             <ng-container matColumnDef="Trip">
-                <th mat-header-cell *matHeaderCellDef>Trip </th>
-                <td mat-cell *matCellDef="let element">{{element.trip}}</td>
+                <th mat-header-cell *matHeaderCellDef>Destination </th>
+                <td mat-cell *matCellDef="let element">{{element.destination}}</td>
             </ng-container>
             <ng-container matColumnDef="Action">
                 <th mat-header-cell *matHeaderCellDef>Action</th>
