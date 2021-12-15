@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CpmService } from 'src/app/_services/cpm/cpm.service';
 
@@ -17,36 +17,49 @@ export class AddTripComponent implements OnInit {
 
   ngOnInit(): void {
     this.addTripInformation = this.formBuilder.group({
-      destination: [],
-      departureTime: [],
-      driver: [],
-      carType:[],
-      maximumOnlineTicketNumber:[],
-      departureDate: [],
+      destination: ["", [
+        Validators.required
+      ]],
+      departureTime: ["", [
+        Validators.required
+      ]],
+      driver: ["", [
+        Validators.required
+      ]],
+      carType: ["", [
+        Validators.required
+      ]],
+      maximumOnlineTicketNumber: ["", [
+        Validators.required
+      ]],
+      departureDate: ["", [
+        Validators.required
+      ]],
     })
   }
 
-  get f(){
+  get f() {
     return this.addTripInformation.controls;
   }
 
-  addNewTrip(){
-    console.log(this.addTripInformation.value);
-    
-    this.cpmService.addTrip(
-      this.f.destination.value,
-      this.f.departureTime.value,
-      this.f.driver.value,
-      this.f.carType.value,
-      this.f.maximumOnlineTicketNumber.value,
-      this.f.departureDate.value
-    ).subscribe((res:any) =>{
-      console.log(res);
-      this.router.navigate(['/cpa/trip/list']);
-    }, (error:any) =>{
-      console.log(error);
-      
-    })
+  addNewTrip() {
+    if (this.addTripInformation.invalid) {
+      return;
+    } else {
+      this.cpmService.addTrip(
+        this.f.destination.value,
+        this.f.departureTime.value,
+        this.f.driver.value,
+        this.f.carType.value,
+        this.f.maximumOnlineTicketNumber.value,
+        this.f.departureDate.value
+      ).subscribe((res: any) => {
+        console.log(res);
+        this.router.navigate(['/cpa/trip/list']);
+      }, (error: any) => {
+        console.log(error);
+      })
+    }
   }
 
 }

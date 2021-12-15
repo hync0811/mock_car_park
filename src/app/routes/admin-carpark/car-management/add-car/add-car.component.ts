@@ -11,7 +11,7 @@ import { CpmService } from 'src/app/_services/cpm/cpm.service';
 export class AddCarComponent implements OnInit {
 
   addCarInformation!: FormGroup;
-  parkinglots: any[]=[];
+  parkinglots: any[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private cpmService: CpmService,
@@ -44,7 +44,7 @@ export class AddCarComponent implements OnInit {
   }
 
   getParkingLot() {
-    this.cpmService.getAllParkingLot(0,10).subscribe((res:any) =>{
+    this.cpmService.getAllParkingLot(0, 10).subscribe((res: any) => {
       this.parkinglots = res.data;
     })
   }
@@ -54,21 +54,24 @@ export class AddCarComponent implements OnInit {
   }
 
   addNewCar() {
-    this.cpmService.addCar(
-      this.f.licensePlate.value,
-      this.f.carColor.value,
-      this.f.carType.value,
-      this.f.company.value,
-      this.f.parkingLot.value
-    ).subscribe((res: any) => {
-      console.log(res);
-      this.router.navigate(['/cpa/car/list']);
-    }, (error: any) => {
-      console.log(error);
-      this.router.navigate(['/cpa/car/list']);
-    })
-    console.log(this.addCarInformation.value);
-
+    if (this.addCarInformation.invalid) {
+      return;
+    }
+    else {
+      this.cpmService.addCar(
+        this.f.licensePlate.value,
+        this.f.carColor.value,
+        this.f.carType.value,
+        this.f.company.value,
+        this.f.parkingLot.value
+      ).subscribe((res: any) => {
+        console.log(res);
+        this.router.navigate(['/cpa/car/list']);
+      }, (error: any) => {
+        console.log(error);
+        this.router.navigate(['/cpa/car/list']);
+      })
+    }
   }
 
 }

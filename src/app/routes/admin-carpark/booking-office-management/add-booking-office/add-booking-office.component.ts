@@ -11,7 +11,7 @@ import { CpmService } from 'src/app/_services/cpm/cpm.service';
 export class AddBookingOfficeComponent implements OnInit {
 
   addBookingOfficeInformation!: FormGroup;
-  trips: any[]=[];
+  trips: any[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private cpmService: CpmService,
@@ -51,27 +51,32 @@ export class AddBookingOfficeComponent implements OnInit {
     this.cpmService.getAllTrip(0, 10).subscribe((res: any) => {
       this.trips = res.data;
       console.log(this.trips);
-      
+
     })
   }
 
   addNewBookingOffice() {
-    this.cpmService.addBookingOffice(
-      this.f.contractDeadlineEnd.value,
-      this.f.bookingOfficeName.value,
-      this.f.phoneNumber.value,
-      this.f.place.value,
-      this.f.price.value,
-      this.f.contractDeadlineStart.value,
-      this.f.trip.value
-    ).subscribe((res: any) => {
-      console.log(res);
-      this.router.navigate(['/cpa/booking-office/list'])
-    }, (error: any) => {
-      console.log(error);
-      console.log(this.addBookingOfficeInformation.value);
-
-    })
+    if (this.addBookingOfficeInformation.invalid) {
+      return;
+    }
+    else {
+      this.cpmService.addBookingOffice(
+        // this.f.contractDeadlineEnd.value,
+        this.f.bookingOfficeName.value,
+        this.f.phoneNumber.value,
+        this.f.place.value,
+        this.f.price.value,
+        // this.f.contractDeadlineStart.value,
+        this.f.trip.value
+      ).subscribe((res: any) => {
+        console.log(res);
+        this.router.navigate(['/cpa/booking-office/list'])
+      }, (error: any) => {
+        console.log(error);
+        console.log(this.addBookingOfficeInformation.value);
+        this.router.navigate(['/cpa/booking-office/list'])
+      })
+    }
   }
 
 }

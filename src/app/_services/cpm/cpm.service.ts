@@ -83,22 +83,22 @@ export class CpmService {
   }
 
   addBookingOffice(
-    enContractDeadline: Date,
+    // enContractDeadline: Date,
     officeName: string,
     officePhone: string,
     officePlace: string,
     officePrice: number,
-    startContractDeadline: Date,
+    // startContractDeadline: Date,
     tripId: number
   ): Observable<any> {
     const headers = { 'content-type': 'application/json' }
     const obj = {
-      enContractDeadline: enContractDeadline,
+      // enContractDeadline: enContractDeadline,
       officeName: officeName,
       officePhone: officePhone,
       officePlace: officePlace,
       officePrice: officePrice,
-      startContractDeadline: startContractDeadline,
+      // startContractDeadline: startContractDeadline,
       tripId: tripId
     };
     const body = JSON.stringify(obj);
